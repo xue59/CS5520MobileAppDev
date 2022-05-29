@@ -12,7 +12,7 @@ import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     private static final String MyTAG="LogTag";
-    private Button btnAboutMe, btnHelloWorld;
+    private Button btnAboutMe, btnHelloWorld, btnClicky;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnAboutMe = (Button) findViewById(R.id.btnAboutMe); //select the aboutMe button by ID
         btnHelloWorld = (Button) findViewById(R.id.btnHelloWorld); //select the helloWorld button by ID
+        btnClicky = (Button) findViewById(R.id.btnClicky); //select clicky button
 
         btnAboutMe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,10 +38,21 @@ public class MainActivity extends AppCompatActivity {
                 openHelloWorldActivity();
             }
         });
+        btnClicky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openClickyClickyActivity();
+            }
+        });
 
     }
     public void openHelloWorldActivity() {
         Intent intent = new Intent(this, HelloWorldActivity.class);
+        startActivity(intent);
+    }
+
+    public void openClickyClickyActivity(){
+        Intent intent = new Intent(this, ClickyClicky.class);
         startActivity(intent);
     }
 

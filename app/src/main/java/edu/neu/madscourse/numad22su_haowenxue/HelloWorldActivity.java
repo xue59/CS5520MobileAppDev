@@ -3,9 +3,9 @@ package edu.neu.madscourse.numad22su_haowenxue;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
+
 
 public class HelloWorldActivity extends AppCompatActivity {
 
@@ -26,4 +26,5 @@ public class HelloWorldActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
