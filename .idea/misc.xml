@@ -6,9 +6,12 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_launcher_hw_foreground.xml" value="0.228" />
+        <entry key="app/src/main/res/layout/activity_add_link.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/activity_clicky_clicky.xml" value="0.27580413818359384" />
         <entry key="app/src/main/res/layout/activity_hello_world.xml" value="0.11121419270833324" />
+        <entry key="app/src/main/res/layout/activity_link_collector.xml" value="0.21075642903645833" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21907043457031228" />
+        <entry key="app/src/main/res/layout/linkname_linkurl.xml" value="0.30059185493283136" />
       </map>
     </option>
   </component>
@@ -21,7 +24,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.4233917236328125" />
+        <option name="scale" value="0.2908844813508224" />
       </ProjectState>
     </option>
   </component>

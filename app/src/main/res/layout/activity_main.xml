@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="About me"
+        android:text="About me(Toast)"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Hello World"
+        android:text="About me(new activity)"
         app:layout_constraintStart_toStartOf="@+id/btnAboutMe"
         app:layout_constraintTop_toBottomOf="@+id/btnAboutMe" />
 
@@ -40,6 +40,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Clicky Clicky"
+        app:layout_constraintStart_toStartOf="@+id/btnHelloWorld"
+        app:layout_constraintTop_toBottomOf="@+id/btnHelloWorld" />
+
+    <Button
+        android:id="@+id/btnLinkCollector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="Link Collector"
         app:layout_constraintStart_toStartOf="@+id/btnHelloWorld"
         app:layout_constraintTop_toBottomOf="@+id/btnHelloWorld" />
 
