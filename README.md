@@ -23,5 +23,4 @@ Label the buttons A, B, C, D, E, and F in the buttons. In addition to the button
 A B C
 
 D E F
-
 Pressed: A
