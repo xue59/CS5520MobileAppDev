@@ -22,7 +22,7 @@ public class ALinkAdapter extends RecyclerView.Adapter<ALinkViewHolder>{
     @Override
     @NonNull
     public ALinkViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ALinkViewHolder(LayoutInflater.from(context).inflate(R.layout.linkname_linkurl, null), context);
+        return new ALinkViewHolder(LayoutInflater.from(context).inflate(R.layout.linkname_linkurl, parent, false), context);
     }
 
     @Override
