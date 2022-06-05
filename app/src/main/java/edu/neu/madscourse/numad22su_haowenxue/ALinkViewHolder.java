@@ -11,12 +11,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.content.Context;
 
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class ALinkViewHolder extends RecyclerView.ViewHolder{
     public TextView linkNameTV;
     public TextView linkURLTV;
-    public Button linkURL;
+    public Button btnGo;
     public ALink aLink;
     private Context context;
 
@@ -25,11 +26,20 @@ public class ALinkViewHolder extends RecyclerView.ViewHolder{
         this.linkNameTV = itemView.findViewById(R.id.linkName);
         this.linkURLTV  = itemView.findViewById(R.id.linkURL);
         this.context = context;
+        btnGo = (Button) itemView.findViewById(R.id.btnGo);
 
         itemView.findViewById(R.id.linkURL).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("visit: ", "clicked " + aLink.getLinkName() );
+                Log.i("URL: ", "clicked " + aLink.getLinkName() );
+                gotoURL(aLink.getLinkURL());
+            }
+        });
+
+        btnGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("Go: ", "clicked " + aLink.getLinkName() );
                 gotoURL(aLink.getLinkURL());
             }
         });
@@ -41,7 +51,18 @@ public class ALinkViewHolder extends RecyclerView.ViewHolder{
     }
 
     private void gotoURL(String s){
-        Uri uri=Uri.parse(s);
-        context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+      Uri uri;
+        if (s.startsWith("https://") || s.startsWith("http://")){
+            uri=Uri.parse(s);
+        }else{
+            uri=Uri.parse("https://" + s);
+        }
+        try{
+            context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+        } catch (Exception e) {
+            Log.i("Error gotoURL", "Wrong URL");
+//            Snackbar snackbar = Snackbar.make(findViewById(R.id.links_recycler_view), "Add URL Success!", Snackbar.LENGTH_LONG);
+//            snackbar.show();
+        }
     }
 }

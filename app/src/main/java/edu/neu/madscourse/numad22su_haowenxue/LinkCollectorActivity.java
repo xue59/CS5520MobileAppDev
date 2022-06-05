@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MenuItem;
+
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -18,16 +21,16 @@ import android.view.View;
 import android.view.LayoutInflater;
 import android.widget.Button;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import android.util.Log;
 import android.widget.EditText;
 import android.content.DialogInterface;
 
-
-
-public class LinkCollectorActivity extends AppCompatActivity {
+public class LinkCollectorActivity extends AppCompatActivity{
     RecyclerView linksRecyclerView;
     List<ALink> listOfLinks;
     FloatingActionButton fbtnAdd;
+    String[] a_input_Name_link= {"", ""};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +41,10 @@ public class LinkCollectorActivity extends AppCompatActivity {
 
         //start here:
         listOfLinks = new ArrayList<>();
-        List<String> sampleNames = new ArrayList<>(List.of("Aarav", "Beth","Chun","Dasya","Ed","Faith","Gran","Hem","Isaac","Jing","Karl","Liang","Marvin","Nimit"));
-        for (String name : sampleNames) {
-            listOfLinks.add(new ALink(name, "http://www.bing.com"));
-        }
+//        List<String> sampleNames = new ArrayList<>(List.of("Aarav", "Beth","Chun","Dasya","Ed","Faith","Gran","Hem","Isaac","Jing","Karl","Liang","Marvin","Nimit"));
+//        for (String name : sampleNames) {
+//            listOfLinks.add(new ALink(name, "http://www.bing.com"));
+//        }
 
         linksRecyclerView = findViewById(R.id.links_recycler_view);
         linksRecyclerView.setHasFixedSize(true);
@@ -52,34 +55,65 @@ public class LinkCollectorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("tag:","float btn clicked!!");
+//                openDialog();
 
-                AlertDialog.Builder linkDialog = new AlertDialog.Builder(LinkCollectorActivity.this);
-                linkDialog.setTitle("Please input a link:");
+                AlertDialog.Builder inputName = new AlertDialog.Builder(LinkCollectorActivity.this);
+                inputName.setTitle("Give a Name for the link:");
                 final EditText linkNameInput = new EditText(LinkCollectorActivity.this);
                 linkNameInput.setInputType(InputType.TYPE_CLASS_TEXT);
+                inputName.setView(linkNameInput);
 
-                final EditText linkURLInput = new EditText(LinkCollectorActivity.this);
-                linkURLInput.setInputType(InputType.TYPE_CLASS_TEXT);
-                linkDialog.setView(linkURLInput);
-
-
-                linkDialog.setPositiveButton("Enter", new DialogInterface.OnClickListener() {
+                inputName.setPositiveButton("Enter", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Log.i("tag", "Input text: " + linkURLInput.getText());
+                        Log.i("tag", "Input name: " + linkNameInput.getText());
+                        a_input_Name_link[0] = linkNameInput.getText().toString();
+
+                        AlertDialog.Builder inputURL = new AlertDialog.Builder(LinkCollectorActivity.this);
+                        inputURL.setTitle("Enter the URL:");
+//                        inputURL.setT
+                        final EditText linkURLInput = new EditText(LinkCollectorActivity.this);
+                        linkURLInput.setInputType(InputType.TYPE_CLASS_TEXT);
+                        linkURLInput.setText("https://");
+                        inputURL.setView(linkURLInput);
+
+                        inputURL.setPositiveButton("Enter", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                a_input_Name_link[1] = linkURLInput.getText().toString();
+                                Log.i("tag", "Input Name & URL: " + a_input_Name_link[0] + a_input_Name_link[1]);
+                                if (listOfLinks.add(new ALink(a_input_Name_link[0], a_input_Name_link[1])) == true) {
+                                    Snackbar snackbar = Snackbar.make(findViewById(R.id.links_recycler_view), "Add URL Success!", Snackbar.LENGTH_LONG);
+                                    snackbar.show();
+                                } else {
+                                    Snackbar snackbar = Snackbar.make(findViewById(R.id.links_recycler_view), "Add URL Failed!", Snackbar.LENGTH_LONG);
+                                    snackbar.show();
+                                }
+                            }
+                        });
+
+                        inputURL.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        inputURL.show();
                     }
                 });
 
-                linkDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                inputName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 });
-                linkDialog.show();
-            }
+                inputName.show();
+            };
         });
+
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -90,8 +124,9 @@ public class LinkCollectorActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+}
 
 //    public void openAddLinkWindow(){
 //
 //    }
-}
+//}
