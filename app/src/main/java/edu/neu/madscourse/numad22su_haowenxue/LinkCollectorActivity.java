@@ -2,20 +2,25 @@ package edu.neu.madscourse.numad22su_haowenxue;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.MenuItem;
 import java.util.List;
 import java.util.ArrayList;
 
 import android.view.View;
+import android.view.LayoutInflater;
 import android.widget.Button;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.util.Log;
-
+import android.widget.EditText;
+import android.content.DialogInterface;
 
 
 
@@ -47,6 +52,31 @@ public class LinkCollectorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("tag:","float btn clicked!!");
+
+                AlertDialog.Builder linkDialog = new AlertDialog.Builder(LinkCollectorActivity.this);
+                linkDialog.setTitle("Please input a link:");
+                final EditText linkNameInput = new EditText(LinkCollectorActivity.this);
+                linkNameInput.setInputType(InputType.TYPE_CLASS_TEXT);
+
+                final EditText linkURLInput = new EditText(LinkCollectorActivity.this);
+                linkURLInput.setInputType(InputType.TYPE_CLASS_TEXT);
+                linkDialog.setView(linkURLInput);
+
+
+                linkDialog.setPositiveButton("Enter", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.i("tag", "Input text: " + linkURLInput.getText());
+                    }
+                });
+
+                linkDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                linkDialog.show();
             }
         });
     }
