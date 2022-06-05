@@ -12,7 +12,7 @@ import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     private static final String MyTAG="LogTag";
-    private Button btnAboutMe, btnHelloWorld, btnClicky;
+    private Button btnAboutMe, btnHelloWorld, btnClicky, btnLinkCollector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btnAboutMe = (Button) findViewById(R.id.btnAboutMe); //select the aboutMe button by ID
         btnHelloWorld = (Button) findViewById(R.id.btnHelloWorld); //select the helloWorld button by ID
         btnClicky = (Button) findViewById(R.id.btnClicky); //select clicky button
+        btnLinkCollector = (Button) findViewById(R.id.btnLinkCollector);
 
         btnAboutMe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnLinkCollector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {openLinkCollectorActivity();}
+        });
+
     }
     public void openHelloWorldActivity() {
         Intent intent = new Intent(this, HelloWorldActivity.class);
@@ -56,4 +62,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openLinkCollectorActivity(){
+        Intent intent = new Intent(this, LinkCollectorActivity.class);
+        startActivity(intent);
+    }
 }
