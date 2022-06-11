@@ -61,8 +61,8 @@ public class ALinkViewHolder extends RecyclerView.ViewHolder{
             context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
         } catch (Exception e) {
             Log.i("Error gotoURL", "Wrong URL");
-//            Snackbar snackbar = Snackbar.make(findViewById(R.id.links_recycler_view), "Add URL Success!", Snackbar.LENGTH_LONG);
-//            snackbar.show();
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.links_recycler_view), "Add URL Success!", Snackbar.LENGTH_LONG);
+            snackbar.show();
         }
     }
 }
