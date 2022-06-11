@@ -10,8 +10,8 @@ import android.util.Log;
 import android.content.Intent;
 import android.net.Uri;
 import android.content.Context;
-
 import com.google.android.material.snackbar.Snackbar;
+
 
 
 public class ALinkViewHolder extends RecyclerView.ViewHolder{
@@ -61,8 +61,10 @@ public class ALinkViewHolder extends RecyclerView.ViewHolder{
             context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
         } catch (Exception e) {
             Log.i("Error gotoURL", "Wrong URL");
-            Snackbar snackbar = Snackbar.make(findViewById(R.id.links_recycler_view), "Add URL Success!", Snackbar.LENGTH_LONG);
-            snackbar.show();
+            // need figure out why error: cannot find symbol method findViewById(int)
+            //
+//            Snackbar snackbar = Snackbar.make(findViewById(R.id.links_recycler_view), "Wrong URL!", Snackbar.LENGTH_LONG);
+//            snackbar.show();
         }
     }
 }
