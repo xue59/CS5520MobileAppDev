@@ -14,11 +14,11 @@
         android:text="Find Primes"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnTerminateSearch"
-        app:layout_constraintHorizontal_bias="0.613"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.231" />
+        app:layout_constraintVertical_bias="0.246" />
 
     <Button
         android:id="@+id/btnTerminateSearch"
@@ -28,10 +28,10 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toEndOf="@+id/btnFindPrimes"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.231" />
+        app:layout_constraintVertical_bias="0.243" />
 
     <CheckBox
         android:id="@+id/PaciferSwitch"
@@ -43,7 +43,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTerminateSearch"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintVertical_bias="0.365" />
 
     <TextView
         android:id="@+id/status"
@@ -52,7 +52,7 @@
         android:text="Search Loop Status:"
         app:layout_constraintBottom_toTopOf="@+id/PaciferSwitch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFindPrimes"
         app:layout_constraintVertical_bias="0.37" />
@@ -64,10 +64,10 @@
         android:text="-"
         app:layout_constraintBottom_toTopOf="@+id/PaciferSwitch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toEndOf="@+id/status"
-        app:layout_constraintTop_toBottomOf="@+id/btnFindPrimes"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintTop_toTopOf="@+id/status"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textFordisplay"
@@ -75,23 +75,22 @@
         android:layout_height="wrap_content"
         android:text="Is the current a Prime number? : "
         app:layout_constraintBottom_toTopOf="@+id/PaciferSwitch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintEnd_toEndOf="@+id/status"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/status"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintVertical_bias="0.205" />
 
     <TextView
         android:id="@+id/textPrimeOrNot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="46dp"
         android:text="-"
         app:layout_constraintBottom_toTopOf="@+id/PaciferSwitch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toEndOf="@+id/textFordisplay"
-        app:layout_constraintTop_toBottomOf="@+id/status" />
+        app:layout_constraintTop_toTopOf="@+id/textFordisplay"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
