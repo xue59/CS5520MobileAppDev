@@ -94,7 +94,7 @@ public class PrimeTimeActivity extends AppCompatActivity {
                 });
                 Log.d("PrimeTime:", "runing prime number loop on i" + outputNum);
                 try {
-                    Thread.sleep(20); //Makes the thread sleep or be inactive for 10 seconds
+                    Thread.sleep(300); //Makes the thread sleep or be inactive for 10 seconds
                 } catch (InterruptedException e) {
                     Log.d("ERROR Interrupted:", "Interrupted!");
                     e.printStackTrace();
