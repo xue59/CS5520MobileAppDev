@@ -14,10 +14,14 @@
         android:theme="@style/Theme.NUMAD22Su_HaowenXue"
         tools:targetApi="31">
         <activity
-            android:name=".LinkCollectorActivity"
+            android:name=".PrimeTimeActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".LinkCollectorActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"></activity>
         <activity
             android:name=".ClickyClicky"
             android:exported="false" />
