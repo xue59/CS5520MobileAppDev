@@ -73,6 +73,8 @@ public class LocationConfirmed extends AppCompatActivity implements LocationList
                     getLocation();
                 }else{
                     switchBolean = false;
+                    totalDistance = 0.0;
+                    textTotalDistance.setText("0.0 km");
                     Log.d("switch:", "Enable precise location");
                     getLocation();
                 }
