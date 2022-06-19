@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.util.Log;
 
 import android.Manifest;
@@ -59,8 +60,7 @@ public class LocationConfirmed extends AppCompatActivity implements LocationList
           != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(LocationConfirmed.this, new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION}, 100);
-//            ActivityCompat.requestPermissions(LocationConfirmed.this, new String[]{
-//                    Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
+            getLocation();
         }
         getLocation();
 
@@ -91,7 +91,8 @@ public class LocationConfirmed extends AppCompatActivity implements LocationList
     private void getLocation(){
         try {
             locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,500,5,LocationConfirmed.this);
+//            Criteria criteria = new Criteria();
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,500,3,LocationConfirmed.this);
         } catch (Exception e){
             Log.d("LocationConfirmed ERROR: ", "getLocation Exception ERROR!!!");
         }
