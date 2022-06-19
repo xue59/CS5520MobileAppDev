@@ -14,14 +14,18 @@
         android:theme="@style/Theme.NUMAD22Su_HaowenXue"
         tools:targetApi="31">
         <activity
-            android:name=".PrimeTimeActivity"
+            android:name=".LocationConfirmed"
             android:configChanges="orientation|screenSize"
             android:exported="true">
         </activity>
         <activity
-            android:name=".LinkCollectorActivity"
+            android:name=".PrimeTimeActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"></activity>
+        <activity
+            android:name=".LinkCollectorActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true" />
         <activity
             android:name=".ClickyClicky"
             android:exported="false" />
@@ -33,6 +37,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -12,7 +12,7 @@ import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     private static final String MyTAG="LogTag";
-    private Button btnAboutMe, btnHelloWorld, btnClicky, btnLinkCollector, btnPrimeTime;
+    private Button btnAboutMe, btnHelloWorld, btnClicky, btnLinkCollector, btnPrimeTime, btnLocationConfirmed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         btnClicky = (Button) findViewById(R.id.btnClicky); //select clicky button
         btnLinkCollector = (Button) findViewById(R.id.btnLinkCollector);
         btnPrimeTime = (Button) findViewById(R.id.btnPrimeTime);
+        btnLocationConfirmed = (Button)findViewById(R.id.btnLocationConfirmed);
 
         btnAboutMe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {openPrimeTimeActivity();}
         });
 
+        btnLocationConfirmed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {openLocationConfirmedActivity();}
+        });
+
     }
     public void openHelloWorldActivity() {
         Intent intent = new Intent(this, HelloWorldActivity.class);
@@ -75,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openPrimeTimeActivity(){
         Intent intent = new Intent(this, PrimeTimeActivity.class);
+        startActivity(intent);
+    }
+
+    public void openLocationConfirmedActivity(){
+        Intent intent = new Intent(this, LocationConfirmed.class);
         startActivity(intent);
     }
 }
