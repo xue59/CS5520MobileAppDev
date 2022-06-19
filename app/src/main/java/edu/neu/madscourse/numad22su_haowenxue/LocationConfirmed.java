@@ -117,7 +117,7 @@ public class LocationConfirmed extends AppCompatActivity implements LocationList
         if (ContextCompat.checkSelfPermission(LocationConfirmed.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED){
             this.finish();
-            Toast.makeText(this, "Precision location Denied. Please Grant precision location in Setting.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Precision location Denied. \nGrant precise location in Setting.", Toast.LENGTH_SHORT).show();
         }
         try {
             locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
@@ -127,7 +127,7 @@ public class LocationConfirmed extends AppCompatActivity implements LocationList
         } catch (Exception e){
             Log.d("LocationConfirmed ERROR: ", "getLocation Exception ERROR!!!");
             this.finish();
-            Toast.makeText(this, "Precision location Denied. Please Grant precision location.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Precision location Denied. \nGrant precise location in Setting.", Toast.LENGTH_SHORT).show();
 //            Log.d("Exception All provider list ", ""+ locationManager.getAllProviders());
 //            LocationRequest locationRequest = new LocationRequest();
 //            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
