@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.neu.madscourse.numad22su_haowenxue">
+    <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Include only if your app benefits from precise location access. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +21,9 @@
         <activity
             android:name=".LocationConfirmed"
             android:configChanges="orientation|screenSize"
-            android:exported="true">
+            android:exported="true"
+            >
+
         </activity>
         <activity
             android:name=".PrimeTimeActivity"
