@@ -131,6 +131,12 @@ public class AtYourService extends AppCompatActivity {
                 //country.setText("Something went wrong!");
                 Log.d("onPost Error", "invalid zip code");
                 country.setText( "-");
+                zip.setText( "-");
+                latitude.setText( "-");
+                longitude.setText( "-");
+                city.setText( "-");
+                state.setText( "-");
+                county.setText( "-");
                 final AlertDialog.Builder builder = new AlertDialog.Builder(AtYourService.this);
                 builder.setMessage("Invalid ZIP Code \nPlease enter a valid 5-diget US ZIP code. ");
                 builder.setNegativeButton("Got it!", new DialogInterface.OnClickListener() {
