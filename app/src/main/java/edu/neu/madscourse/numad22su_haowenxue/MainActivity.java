@@ -12,7 +12,9 @@ import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     private static final String MyTAG="LogTag";
-    private Button btnAboutMe, btnHelloWorld, btnClicky, btnLinkCollector, btnPrimeTime, btnLocationConfirmed;
+    private Button btnAboutMe, btnHelloWorld,
+            btnClicky, btnLinkCollector, btnPrimeTime,
+            btnLocationConfirmed, btnAtYourService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btnLinkCollector = (Button) findViewById(R.id.btnLinkCollector);
         btnPrimeTime = (Button) findViewById(R.id.btnPrimeTime);
         btnLocationConfirmed = (Button)findViewById(R.id.btnLocationConfirmed);
+        btnAtYourService = (Button)findViewById(R.id.btnAtYourService);
 
         btnAboutMe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {openLocationConfirmedActivity();}
         });
+        btnAtYourService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {openAtYourServiceActiviry();}
+        });
 
     }
     public void openHelloWorldActivity() {
@@ -86,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openLocationConfirmedActivity(){
         Intent intent = new Intent(this, LocationConfirmed.class);
+        startActivity(intent);
+    }
+
+    public void openAtYourServiceActiviry(){
+        Intent intent = new Intent(this, AtYourService.class);
         startActivity(intent);
     }
 }

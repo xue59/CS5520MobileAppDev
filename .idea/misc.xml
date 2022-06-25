@@ -6,12 +6,15 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_launcher_hw_foreground.xml" value="0.228" />
+        <entry key="app/src/main/res/layout-land/activity_at_your_service.xml" value="0.21335144042968768" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.30789489746093757" />
         <entry key="app/src/main/res/layout/activity_add_link.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/activity_at_your_service.xml" value="0.3457443237304687" />
         <entry key="app/src/main/res/layout/activity_clicky_clicky.xml" value="0.27580413818359384" />
         <entry key="app/src/main/res/layout/activity_hello_world.xml" value="0.11121419270833324" />
         <entry key="app/src/main/res/layout/activity_link_collector.xml" value="0.15322418212890626" />
         <entry key="app/src/main/res/layout/activity_location_confirmed.xml" value="0.2582458496093752" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3139766492341695" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.286376953125" />
         <entry key="app/src/main/res/layout/activity_prime_time.xml" value="0.2561981201171875" />
         <entry key="app/src/main/res/layout/input_link_dialog.xml" value="0.303125" />
         <entry key="app/src/main/res/layout/linkname_linkurl.xml" value="0.3471878051757813" />

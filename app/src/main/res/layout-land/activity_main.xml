@@ -25,9 +25,10 @@
         android:text="About me(Toast)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
+        app:layout_constraintVertical_bias="0.327" />
 
     <Button
         android:id="@+id/btnHelloWorld"
@@ -36,21 +37,10 @@
         android:text="About me(new activity)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAboutMe"
-        app:layout_constraintVertical_bias="0.026" />
-
-    <Button
-        android:id="@+id/btnClicky"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clicky Clicky"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHelloWorld"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.034" />
 
     <Button
         android:id="@+id/btnLinkCollector"
@@ -59,44 +49,58 @@
         android:text="Link Collector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnClicky"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnClicky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clicky Clicky"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHelloWorld"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnPrimeTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Prime Time"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnHelloWorld"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLinkCollector"
-        app:layout_constraintVertical_bias="0.039" />
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toEndOf="@+id/btnAboutMe"
+        app:layout_constraintTop_toTopOf="@+id/btnAboutMe"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnLocationConfirmed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
         android:text="Location Confirmed"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btnHelloWorld"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPrimeTime"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toEndOf="@+id/btnHelloWorld"
+        app:layout_constraintTop_toTopOf="@+id/btnHelloWorld"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnAtYourService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:text="At Your Service"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btnClicky"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLocationConfirmed"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toEndOf="@+id/btnClicky"
+        app:layout_constraintTop_toTopOf="@+id/btnClicky"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
