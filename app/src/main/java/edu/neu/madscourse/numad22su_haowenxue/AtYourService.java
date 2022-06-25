@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ProgressBar;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +36,7 @@ public class AtYourService extends AppCompatActivity {
 
     public EditText inputZip;
     public Button btnLookupZip;
+    ProgressBar loadingCircle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +53,14 @@ public class AtYourService extends AppCompatActivity {
 
         inputZip = (EditText) findViewById(R.id.inputZip);
         btnLookupZip = (Button) findViewById(R.id.btnLookupZip);
+        loadingCircle =(ProgressBar)findViewById(R.id.loadingCircle); // initiate the active indicator
 
         btnLookupZip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { callZipcodebaseLookupHelper(); }
+            public void onClick(View v) {
+                callZipcodebaseLookupHelper();
+                loadingCircle.setVisibility(View.VISIBLE);
+            }
         });
 
     }
@@ -62,7 +69,7 @@ public class AtYourService extends AppCompatActivity {
         LookupZipService lookupZipService = new LookupZipService();
         String url_zip = "https://app.zipcodebase.com/api/v1/search?apikey=fb8b3a70-f457-11ec-84b5-351a69c8a7b1&country=us&codes="
                 + inputZip.getText().toString();
-        Log.d("zipcode", url_zip);
+        //Log.d("zipcode", url_zip);
         try {
 //            String url = NetworkUtil.validInput(url_zip);
             lookupZipService.execute(url_zip);
@@ -72,16 +79,22 @@ public class AtYourService extends AppCompatActivity {
     }
 
     private class LookupZipService extends AsyncTask<String, Integer, JSONObject> {
-        private TextView country, zip, latitude, longitude, city, state, county;
+        //public TextView country, zip, latitude, longitude, city, state, county;
+        TextView country = (TextView) findViewById(R.id.country);
+        TextView zip = (TextView) findViewById(R.id.zip);
+        TextView latitude = (TextView) findViewById(R.id.latitude);
+        TextView longitude = (TextView) findViewById(R.id.longitude);
+        TextView city = (TextView) findViewById(R.id.city);
+        TextView state = (TextView) findViewById(R.id.state);
+        TextView county = (TextView) findViewById(R.id.county);
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-            Log.i(TAG, "Processing...");
+            Log.d("into pon progress", "Processing...");
         }
 
         @Override
         protected JSONObject doInBackground(String... params) {
-
             JSONObject jObject = new JSONObject();
             try {
                 URL url = new URL(params[0]);
@@ -107,13 +120,7 @@ public class AtYourService extends AppCompatActivity {
         protected void onPostExecute(JSONObject jObject) {
             super.onPostExecute(jObject);
             //TextView result_view = (TextView)findViewById(R.id.country);
-            country = (TextView) findViewById(R.id.country);
-            zip = (TextView) findViewById(R.id.zip);
-            latitude = (TextView) findViewById(R.id.latitude);
-            longitude = (TextView) findViewById(R.id.longitude);
-            city = (TextView) findViewById(R.id.city);
-            state = (TextView) findViewById(R.id.state);
-            county = (TextView) findViewById(R.id.county);
+
             String query_zip= null;
 
             try {
@@ -148,9 +155,10 @@ public class AtYourService extends AppCompatActivity {
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }
+            loadingCircle.setVisibility(View.INVISIBLE);
         }
     }
-
+    // convert stream to string
     public static String convertStreamToString(InputStream inputStream){
         StringBuilder stringBuilder=new StringBuilder();
         try {
@@ -167,14 +175,13 @@ public class AtYourService extends AppCompatActivity {
         return "";
     }
 
+    //following code sent a http request
     public static String httpResponse(URL url) throws IOException {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setDoInput(true);
-
         conn.connect();
 
-        // Read response.
         InputStream inputStream = conn.getInputStream();
         String resp = convertStreamToString(inputStream);
 
