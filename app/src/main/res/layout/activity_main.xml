@@ -87,4 +87,16 @@
         app:layout_constraintTop_toBottomOf="@+id/btnPrimeTime"
         app:layout_constraintVertical_bias="0.029" />
 
+    <Button
+        android:id="@+id/btnAtYourService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="At Your Service"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLocationConfirmed"
+        app:layout_constraintVertical_bias="0.067" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
